@@ -1,2 +1,12 @@
+//Busqueda por ciudad
 use ("sample_training")
-db.zips.find({state:"NY"})
+db.zips.find({city:"EMPIRE"})
+//busqueda para que solo muestra la ciudad
+use ("sample_training")
+db.zips.find({$and:[{city:"BAILEYTON"}]})
+//busqueda que solo me muestra el estado
+use ("sample_training")
+db.zips.find({$and:[{state:"AL"}]})
+
+use ("sample_training")
+db.trips.find({$and:[{usertype:"Subscriber"},{bikeid:{$gte:18000}}]})
