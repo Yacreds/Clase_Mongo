@@ -1,12 +1,168 @@
 //Busqueda por ciudad
-use ("sample_training")
-db.zips.find({city:"EMPIRE"})
-//busqueda para que solo muestra la ciudad
-use ("sample_training")
-db.zips.find({$and:[{city:"BAILEYTON"}]})
-//busqueda que solo me muestra el estado
-use ("sample_training")
-db.zips.find({$and:[{state:"AL"}]})
+/*use ("sample_training");
+db.zips.find({city:"EMPIRE"});*/
 
-use ("sample_training")
-db.trips.find({$and:[{usertype:"Subscriber"},{bikeid:{$gte:18000}}]})
+//busqueda para que solo muestra la ciudad
+/*use ("sample_training");
+db.zips.find({$and:[{city:"BAILEYTON"}]});*/
+
+//busqueda que solo me muestra el estado
+/*use ("sample_training");
+db.zips.find({$and:[{state:"AL"}]});*/
+
+/*use ("sample_training")
+db.trips.find({$and:[{usertype:"Subscriber"},{bikeid:{$gte:18000}}]});*/
+
+use ("ASSIPARK");
+/*db.getCollection("Residente").find({});
+db.Residente.deleteMany({});
+db.Residente.insertMany([
+    {
+        tipoDocumento: "DNI",
+        numeroDocumento: "12345678",
+        nombre: "Juan",
+        apellido: "Pérez",
+        sexo: "Masculino",
+        telefono: "123456789",
+        celular: "987654321",
+        correoElectronico: "juan@example.com"
+    },
+    {
+        tipoDocumento: "Pasaporte",
+        numeroDocumento: "AB123456",
+        nombre: "María",
+        apellido: "Gómez",
+        sexo: "Femenino",
+        telefono: "987654321",
+        celular: "123456789",
+        correoElectronico: "maria@example.com"
+    },
+    {
+        tipoDocumento: "DNI",
+        numeroDocumento: "87654321",
+        nombre: "Pedro",
+        apellido: "López",
+        sexo: "Masculino",
+        telefono: "456789123",
+        celular: "321654987",
+        correoElectronico: "pedro@example.com"
+    },
+    {
+        tipoDocumento: "Carné de identidad",
+        numeroDocumento: "987654321",
+        nombre: "Laura",
+        apellido: "Martínez",
+        sexo: "Femenino",
+        telefono: "789123456",
+        celular: "654987321",
+        correoElectronico: "laura@example.com"
+    },
+    {
+        tipoDocumento: "Pasaporte",
+        numeroDocumento: "CD654321",
+        nombre: "Carlos",
+        apellido: "Rodríguez",
+        sexo: "Masculino",
+        telefono: "321789456",
+        celular: "987123654",
+        correoElectronico: "carlos@example.com"
+    },
+    {
+        tipoDocumento: "C.C",
+        numeroDocumento: "1233456788",
+        nombre: "Camilo",
+        apellido: "Malcon",
+        sexo: "Masculino",
+        telefono: "123456789",
+        celular: "987654321",
+        correoElectronico: "camilo@example.com"
+    },
+    {
+        tipoDocumento: "Pasaporte",
+        numeroDocumento: "AB1258233456",
+        nombre: "Camila",
+        apellido: "Caballero",
+        sexo: "Femenino",
+        telefono: "987654321",
+        celular: "123456789",
+        correoElectronico: "camila@example.com"
+    }
+]);*/
+
+/*db.getCollection("Vehiculos").find({});
+db.Vehiculos.remove({})*/
+
+/*db.Vehiculos.insertMany([
+    {
+        numeroDocumentoPropietario: "12345678",
+        placa: "ABC123",
+        estadoVehiculo: "Buen estado",
+        marca: "Toyota"
+    },
+    {
+        numeroDocumentoPropietario: "AB123456",
+        placa: "DEF456",
+        estadoVehiculo: "Buen estado",
+        marca: "Honda"
+    }
+]);
+
+db.Apartamentos.insertMany([
+    {
+        residente: {
+        nombre: "Andres",
+        apellido: "Cruz"
+    },
+        numeroApartamento: "106",
+        bloque: 1
+    },
+    {
+        residente: {
+        nombre: "Camila",
+        apellido: "Caballero"
+    },
+        numeroApartamento: "208",
+        bloque: 2
+    }
+]);*/
+
+
+
+// #1 Consulta que muestra los nombre y apellido de cada residente
+/*db.Residente.find({}, { nombre: 1, apellido: 1 });*/
+
+
+// #2 Consulta los tipos de parqueadero que hay
+/*db.Parqueadero.distinct("tipoParqueadero");*/
+
+
+// #3 Consulta para mostrar todos los parqueadero ocupados
+/*db.Parqueadero.find({ "ocupado": true });*/
+
+
+// #4 Consulta por bloque del conjunto, que residente hay y su respectivo apartamento
+/*db.Apartamentos.find({ "bloque": 1 });*/
+
+
+// #5 Muestra los propietarios de los vehículos que están en buen estado.
+/*db.Vehiculos.find({ "estado": "Buen estado" }, { "propietario": 1 });*/
+
+
+// #6 Muestra el número de documento y nombre del propietario del vehículo con placa "DEF456".
+/*db.Vehiculos.findOne({ "placa": "DEF456", }, { "propietario.numeroDocumento": 1, "propietario.nombre": 1 });*/
+
+
+// #7 Consulta el residente/s que habitan en apartamento 202 bloque 2
+/*db.Apartamentos.find({ "bloque": 2, "numeroApartamento": 202 });*/
+
+
+// #8 Muestra el tipo de parqueadero la marca y la placa de los vehiculos
+/*db.Parqueadero.find({}, { "tipoParqueadero": 1, "vehiculo.marca": 1, "vehiculo.placa": 1 });*/
+
+
+// #9 Consulta de cuantos se encuentran en estado regular
+/*db.Parqueadero.count({ "estadoParqueadero": "Regular estado" });*/
+
+
+// #10 Nombre y apellido del propietario junto ala placa del vihiculo
+/*db.Vehiculos.find({}, { "propietario.nombre": 1, "propietario.apellido": 1, "placa": 1 })*/
